@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "69562554353",
+    "project_id": "proyectodieta-ed9ac",
+    "storage_bucket": "proyectodieta-ed9ac.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69562554353:android:f1e49231ab249c8266d650",
+        "android_client_info": {
+          "package_name": "com.example.proyectodieta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCAAkgUCh7msqYWuQMibHaVyQ6DeyjOjE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

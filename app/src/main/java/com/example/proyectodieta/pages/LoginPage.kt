@@ -23,8 +23,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.planificadordietas.ViewModels.AuthState
-import com.example.planificadordietas.ViewModels.AuthViewModel
+import com.example.proyectodieta.ViewModels.AuthState
+import com.example.proyectodieta.ViewModels.AuthViewModel
+
 
 @Composable
 fun LoginPage(modifier: Modifier=Modifier, navController: NavController,authViewModel: AuthViewModel){

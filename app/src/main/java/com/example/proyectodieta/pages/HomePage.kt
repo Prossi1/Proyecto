@@ -24,9 +24,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.planificadordietas.ViewModels.AuthState
-import com.example.planificadordietas.ViewModels.AuthViewModel
-import com.example.planificadordietas.ViewModels.UserProfileViewModel
+import com.example.proyectodieta.ViewModels.AuthState
+import com.example.proyectodieta.ViewModels.AuthViewModel
+import com.example.proyectodieta.ViewModels.UserProfileViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -10,9 +10,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.planificadordietas.ViewModels.AuthViewModel
-import com.example.planificadordietas.ViewModels.UserProfileViewModel
-import com.example.planificadordietas.ui.theme.PlanificadorDietasTheme
+import com.example.proyectodieta.ViewModels.AuthViewModel
+import com.example.proyectodieta.ViewModels.UserProfileViewModel
+import com.example.proyectodieta.ui.theme.PlanificadorDietasTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

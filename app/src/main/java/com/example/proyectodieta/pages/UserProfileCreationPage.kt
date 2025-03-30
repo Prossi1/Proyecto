@@ -13,8 +13,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.planificadordietas.ViewModels.UserProfileViewModel
-import com.example.planificadordietas.ViewModels.UserProfileViewModel.ProfileState
+import com.example.proyectodieta.ViewModels.UserProfileViewModel
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -34,17 +34,17 @@ fun UserProfileCreationPage(
     var expanded by remember { mutableStateOf(false) }
     val genderOptions = listOf("Hombre", "Mujer", "Prefiero no decirlo")
 
-    val profileState by userProfileViewModel.profileState.observeAsState(initial = ProfileState.Initial)
+    val profileState by userProfileViewModel.profileState.observeAsState(initial = UserProfileViewModel.ProfileState.Initial)
     val context = LocalContext.current
 
     // Handle profile state changes
     LaunchedEffect(profileState) {
         when (val state = profileState) {
-            is ProfileState.Success -> {
+            is UserProfileViewModel.ProfileState.Success -> {
                 // Navigate to main app or dashboard
                 navController.navigate("home")
             }
-            is ProfileState.Error -> {
+            is UserProfileViewModel.ProfileState.Error -> {
                 Toast.makeText(context, state.message, Toast.LENGTH_SHORT).show()
             }
             else -> {}

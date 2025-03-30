@@ -3,7 +3,7 @@ package com.example.proyectodieta.ViewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.planificadordietas.data.models.UserProfile
+import com.example.proyectodieta.data.models.UserProfile
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
