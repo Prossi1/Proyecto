@@ -1,4 +1,4 @@
-package com.example.proyectodieta
+package com.example.proyectodieta.data.models
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
