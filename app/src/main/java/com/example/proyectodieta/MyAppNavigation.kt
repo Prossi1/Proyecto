@@ -9,6 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.proyectodieta.ViewModels.AuthViewModel
 import com.example.proyectodieta.ViewModels.MealListViewModel
 import com.example.proyectodieta.ViewModels.MealPlannerViewModel
+import com.example.proyectodieta.ViewModels.ShoppingListViewModel
 import com.example.proyectodieta.ViewModels.UserProfileViewModel
 import com.example.proyectodieta.ViewModels.WeeklyScheduleViewModel
 import com.example.proyectodieta.pages.HelpPage
@@ -17,6 +18,7 @@ import com.example.proyectodieta.pages.LoginPage
 import com.example.proyectodieta.pages.MealListPage
 import com.example.proyectodieta.pages.MealPlannerPage
 import com.example.proyectodieta.pages.ProfileDetailsPage
+import com.example.proyectodieta.pages.ShoppingListPage
 import com.example.proyectodieta.pages.SignupPage
 import com.example.proyectodieta.pages.UserProfileCreationPage
 import com.example.proyectodieta.pages.WeeklySchedulePage
@@ -59,6 +61,11 @@ fun MyAppNavigation(
       composable("weekly_schedule") {
          val weeklyScheduleViewModel: WeeklyScheduleViewModel = viewModel()
          WeeklySchedulePage(navController, weeklyScheduleViewModel)
+      }
+      composable("shopping_list") {
+         val shoppingListViewModel = viewModel<ShoppingListViewModel>()
+         ShoppingListPage(navController = navController, shoppingListViewModel = shoppingListViewModel
+         )
       }
    })
 }

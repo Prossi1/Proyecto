@@ -73,10 +73,22 @@ class MealPlannerViewModel : ViewModel() {
             return
         }
 
+        // Filtrar ingredientes vacíos antes de guardar
+        val validIngredients = _ingredients.value?.filter {
+            it.name.isNotEmpty() || it.quantity.isNotEmpty() || it.unit.isNotEmpty()
+        } ?: emptyList()
+
+        // Si todos los ingredientes están vacíos, mostrar error
+        if (validIngredients.isEmpty()) {
+            _error.value = "Debe agregar al menos un ingrediente con datos"
+            _isLoading.value = false
+            return
+        }
+
         val currentMeal = _currentMeal.value ?: Meal()
         val mealWithIngredients = currentMeal.copy(
             id = currentMeal.id.ifEmpty { UUID.randomUUID().toString() },
-            ingredients = _ingredients.value ?: emptyList()
+            ingredients = validIngredients  // Usar solo ingredientes válidos
         )
 
         val mealMap = hashMapOf(
@@ -137,10 +149,6 @@ class MealPlannerViewModel : ViewModel() {
             }
     }
 
-    // Limpiar formulario
-    fun clearForm() {
-        _currentMeal.value = Meal()
-        _ingredients.value = emptyList()
-        _error.value = null
-    }
+
+
 }
