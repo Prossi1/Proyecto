@@ -11,6 +11,7 @@ import com.example.proyectodieta.ViewModels.MealListViewModel
 import com.example.proyectodieta.ViewModels.MealPlannerViewModel
 import com.example.proyectodieta.ViewModels.ShoppingListViewModel
 import com.example.proyectodieta.ViewModels.UserProfileViewModel
+import com.example.proyectodieta.ViewModels.UserProgressViewModel
 import com.example.proyectodieta.ViewModels.WeeklyScheduleViewModel
 import com.example.proyectodieta.pages.HelpPage
 import com.example.proyectodieta.pages.Homepage
@@ -18,6 +19,7 @@ import com.example.proyectodieta.pages.LoginPage
 import com.example.proyectodieta.pages.MealListPage
 import com.example.proyectodieta.pages.MealPlannerPage
 import com.example.proyectodieta.pages.ProfileDetailsPage
+import com.example.proyectodieta.pages.ProgressPage
 import com.example.proyectodieta.pages.ShoppingListPage
 import com.example.proyectodieta.pages.SignupPage
 import com.example.proyectodieta.pages.UserProfileCreationPage
@@ -27,7 +29,9 @@ import com.example.proyectodieta.pages.WeeklySchedulePage
 fun MyAppNavigation(
    modifier: Modifier = Modifier,
    authViewModel: AuthViewModel,
-   userProfileViewModel: UserProfileViewModel
+   userProfileViewModel: UserProfileViewModel,
+   userProgressViewModel: UserProgressViewModel
+
 ) {
    val navController = rememberNavController()
 
@@ -67,5 +71,13 @@ fun MyAppNavigation(
          ShoppingListPage(navController = navController, shoppingListViewModel = shoppingListViewModel
          )
       }
+      composable("progress") {
+         ProgressPage(
+            navController = navController,
+            userProfileViewModel = userProfileViewModel,
+            userProgressViewModel = userProgressViewModel
+         )
+      }
+
    })
 }

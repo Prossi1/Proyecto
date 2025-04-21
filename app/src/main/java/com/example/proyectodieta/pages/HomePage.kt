@@ -1,11 +1,10 @@
-package com.example.proyectodieta.pages
-
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -15,15 +14,19 @@ import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material.icons.filled.ShowChart
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.proyectodieta.R
 import com.example.proyectodieta.ViewModels.AuthState
 import com.example.proyectodieta.ViewModels.AuthViewModel
 import com.example.proyectodieta.ViewModels.UserProfileViewModel
@@ -95,10 +98,15 @@ fun Homepage(
                     }
 
                     is UserProfileViewModel.ProfileState.ProfileExists -> {
-                        Text(
-                            "Bienvenido ${userProfile?.name ?: ""}",
-                            fontSize = 24.sp,
-                            modifier = Modifier.padding(top = 24.dp, bottom = 40.dp)
+                        // Reemplazar el texto de bienvenida por una imagen larga
+                        Image(
+                            painter = painterResource(id = R.drawable.download),
+                            contentDescription = "Banner de bienvenida",
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(250.dp)
+                                .padding(vertical = 8.dp),
+                            contentScale = ContentScale.FillWidth
                         )
 
                         Column(
@@ -190,6 +198,28 @@ fun Homepage(
                                 )
                                 Text("Agenda")
                             }
+
+                            Spacer(modifier = Modifier.height(16.dp))
+
+                            // Nuevo botón para Ver Progreso
+                            Button(
+                                onClick = { navController.navigate("progress") },
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(56.dp)
+                                    .padding(vertical = 4.dp),
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = MaterialTheme.colorScheme.tertiary,
+                                    contentColor = Color.White
+                                )
+                            ) {
+                                Icon(
+                                    Icons.Default.ShowChart,
+                                    contentDescription = "Ver Progreso",
+                                    modifier = Modifier.padding(end = 8.dp)
+                                )
+                                Text("Ver Progreso")
+                            }
                         }
 
                         Button(
@@ -264,6 +294,16 @@ fun Homepage(
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         Text("Ver Detalles de Perfil")
+                    }
+
+                    TextButton(
+                        onClick = {
+                            navController.navigate("progress")
+                            isSideDrawerVisible = false
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text("Ver Progreso")
                     }
 
                     TextButton(
