@@ -39,7 +39,6 @@ fun ShoppingListPage(
 ) {
     val shoppingItems by shoppingListViewModel.shoppingItems.observeAsState(emptyList())
     val isLoading by shoppingListViewModel.isLoading.observeAsState(false)
-    val error by shoppingListViewModel.error.observeAsState(null)
 
     // Estado para controlar diálogo de información de un item
     var selectedItemInfo by remember { mutableStateOf<ShoppingListItem?>(null) }

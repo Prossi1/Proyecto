@@ -85,5 +85,8 @@ class UserProfileViewModel : ViewModel() {
                 }
         }
     }
+    fun updateUserProfile(updatedProfile: UserProfile) {
+        _userProfile.value = updatedProfile
+    }
 }
 

@@ -30,18 +30,17 @@ fun UserProfileCreationPage(
     var gender by remember { mutableStateOf("") }
     var fitnessGoal by remember { mutableStateOf("") }
 
-    // Dropdown state
+
     var expanded by remember { mutableStateOf(false) }
     val genderOptions = listOf("Hombre", "Mujer", "Prefiero no decirlo")
 
     val profileState by userProfileViewModel.profileState.observeAsState(initial = UserProfileViewModel.ProfileState.Initial)
     val context = LocalContext.current
 
-    // Handle profile state changes
+
     LaunchedEffect(profileState) {
         when (val state = profileState) {
             is UserProfileViewModel.ProfileState.Success -> {
-                // Navigate to main app or dashboard
                 navController.navigate("home")
             }
             is UserProfileViewModel.ProfileState.Error -> {
@@ -59,48 +58,47 @@ fun UserProfileCreationPage(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Complete Your Profile",
+            text = "Completa tu perfil",
             fontSize = 24.sp,
             modifier = Modifier.padding(bottom = 16.dp)
         )
 
-        // Name TextField
+
         OutlinedTextField(
             value = name,
             onValueChange = { name = it },
-            label = { Text("Full Name") },
+            label = { Text("Nombre completo") },
             modifier = Modifier.fillMaxWidth()
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Weight TextField
+
         OutlinedTextField(
             value = weight,
             onValueChange = { weight = it },
-            label = { Text("Weight (kg)") },
+            label = { Text("Peso(kg)") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             modifier = Modifier.fillMaxWidth()
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Height TextField
+
         OutlinedTextField(
             value = height,
             onValueChange = { height = it },
-            label = { Text("Height (cm)") },
+            label = { Text("Altura (cm)") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             modifier = Modifier.fillMaxWidth()
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Age TextField
         OutlinedTextField(
             value = age,
             onValueChange = { age = it },
-            label = { Text("Age") },
+            label = { Text("Edad") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             modifier = Modifier.fillMaxWidth()
         )
@@ -116,7 +114,7 @@ fun UserProfileCreationPage(
             OutlinedTextField(
                 value = gender,
                 onValueChange = {},
-                label = { Text("Gender") },
+                label = { Text("Genero") },
                 readOnly = true,
                 trailingIcon = {
                     ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded)
@@ -146,20 +144,20 @@ fun UserProfileCreationPage(
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Fitness Goal TextField
+
         OutlinedTextField(
             value = fitnessGoal,
             onValueChange = { fitnessGoal = it },
-            label = { Text("Fitness Goal") },
+            label = { Text("Objetivo Fitness") },
             modifier = Modifier.fillMaxWidth()
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Save Profile Button
+
         Button(
             onClick = {
-                // Validate and save profile
+
                 userProfileViewModel.saveUserProfile(
                     name = name,
                     weight = weight.toDoubleOrNull() ?: 0.0,
@@ -176,7 +174,7 @@ fun UserProfileCreationPage(
                     gender.isNotBlank(),
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Save Profile")
+            Text("Guardar perfil")
         }
     }
 }

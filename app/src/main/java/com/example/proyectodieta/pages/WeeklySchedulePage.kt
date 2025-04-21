@@ -34,7 +34,7 @@ fun WeeklySchedulePage(
     val isLoading by weeklyScheduleViewModel.isLoading.observeAsState(false)
     val error by weeklyScheduleViewModel.error.observeAsState(null)
 
-    // Días de la semana en español
+    // Días de la semana
     val daysOfWeek = listOf("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo")
 
     // Estado para controlar el diálogo de añadir comida
@@ -220,7 +220,7 @@ fun DayHeader(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun MealCard(
     scheduledMeal: ScheduledMeal,

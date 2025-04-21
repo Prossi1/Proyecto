@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.proyectodieta.ViewModels.AuthViewModel
 import com.example.proyectodieta.ViewModels.UserProfileViewModel
+import com.example.proyectodieta.ViewModels.UserProgressViewModel
 import com.example.proyectodieta.ui.theme.PlanificadorDietasTheme
 
 
@@ -22,6 +23,7 @@ class MainActivity : ComponentActivity() {
 
         val authViewModel: AuthViewModel by viewModels()
         val userProfileViewModel: UserProfileViewModel by viewModels()
+        val userProgressViewModel: UserProgressViewModel by viewModels()
 
         setContent {
             PlanificadorDietasTheme {
@@ -29,7 +31,8 @@ class MainActivity : ComponentActivity() {
                     MyAppNavigation(
                         modifier = Modifier.padding(innerPadding),
                         authViewModel = authViewModel,
-                        userProfileViewModel = userProfileViewModel
+                        userProfileViewModel = userProfileViewModel,
+                        userProgressViewModel = userProgressViewModel
                     )
                 }
             }

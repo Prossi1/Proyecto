@@ -21,7 +21,6 @@ import com.example.proyectodieta.ViewModels.UserProfileViewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileDetailsPage(
-    modifier: Modifier = Modifier,
     navController: NavController,
     userProfileViewModel: UserProfileViewModel
 ) {
@@ -38,8 +37,7 @@ fun ProfileDetailsPage(
                 },
                 actions = {
                     IconButton(onClick = {
-                        // TODO: Implementar edición de perfil
-                        // navController.navigate("edit_profile")
+                        navController.navigate("edit_profile")
                     }) {
                         Icon(Icons.Default.Edit, contentDescription = "Editar Perfil")
                     }

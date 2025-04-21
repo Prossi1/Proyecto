@@ -1,3 +1,5 @@
+package com.example.proyectodieta.pages
+
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
@@ -41,7 +43,6 @@ fun Homepage(
     userProfileViewModel: UserProfileViewModel
 ) {
     val authState = authViewModel.authState.observeAsState()
-    val userProfile by userProfileViewModel.userProfile.observeAsState()
     val profileState by userProfileViewModel.profileState.observeAsState()
 
     // Estado para el Side Drawer
@@ -296,15 +297,6 @@ fun Homepage(
                         Text("Ver Detalles de Perfil")
                     }
 
-                    TextButton(
-                        onClick = {
-                            navController.navigate("progress")
-                            isSideDrawerVisible = false
-                        },
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Text("Ver Progreso")
-                    }
 
                     TextButton(
                         onClick = {

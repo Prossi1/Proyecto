@@ -1,6 +1,5 @@
 package com.example.proyectodieta.pages
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -30,7 +29,6 @@ import java.util.*
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProgressPage(
-    modifier: Modifier = Modifier,
     navController: NavController,
     userProfileViewModel: UserProfileViewModel,
     userProgressViewModel: UserProgressViewModel
@@ -317,7 +315,6 @@ fun ProgressEntryItem(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddProgressDialog(
     onDismiss: () -> Unit,

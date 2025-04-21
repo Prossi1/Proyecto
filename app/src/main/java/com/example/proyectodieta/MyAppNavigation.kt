@@ -13,6 +13,7 @@ import com.example.proyectodieta.ViewModels.ShoppingListViewModel
 import com.example.proyectodieta.ViewModels.UserProfileViewModel
 import com.example.proyectodieta.ViewModels.UserProgressViewModel
 import com.example.proyectodieta.ViewModels.WeeklyScheduleViewModel
+import com.example.proyectodieta.pages.EditProfilePage
 import com.example.proyectodieta.pages.HelpPage
 import com.example.proyectodieta.pages.Homepage
 import com.example.proyectodieta.pages.LoginPage
@@ -49,7 +50,7 @@ fun MyAppNavigation(
          UserProfileCreationPage(modifier, navController, userProfileViewModel)
       }
       composable("profile_details") {
-         ProfileDetailsPage(modifier, navController, userProfileViewModel)
+         ProfileDetailsPage(navController, userProfileViewModel)
       }
       composable("help") {
          HelpPage(modifier, navController)
@@ -70,6 +71,9 @@ fun MyAppNavigation(
          val shoppingListViewModel = viewModel<ShoppingListViewModel>()
          ShoppingListPage(navController = navController, shoppingListViewModel = shoppingListViewModel
          )
+      }
+      composable("edit_profile") {
+         EditProfilePage(navController, userProfileViewModel)
       }
       composable("progress") {
          ProgressPage(
